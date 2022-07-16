@@ -20,6 +20,9 @@ Route::get('berkas','User\BerkasController@index')->name('berkas.index');
 Route::get('berkas/create','User\BerkasController@create')->name('berkas.create');
 Route::post('berkas','User\BerkasController@store')->name('berkas.store');
 Route::get('berkas/{id}/file','User\BerkasController@file')->name('berkas.file');
+Route::get('berkas/{id}','User\BerkasController@edit')->name('berkas.edit');
+Route::post('berkas/{id}/update','User\BerkasController@update')->name('berkas.update');
+Route::post('berkas/verifikasi/{id}','User\BerkasController@verifikasi')->name('berkas.verifikasi');
 
 // User/Riwayat
 Route::get('riwayat/{id}','User\RiwayatController@index')->name('riwayat.index');

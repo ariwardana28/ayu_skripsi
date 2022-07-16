@@ -21,6 +21,8 @@ class BerkasController extends Controller
         $riwayat = Riwayat::create([
             'status' => $request->status,
             'id_berkas' => $request->id_berkas,
+            'hal' => $request->hal,
+            'bagian' => $request->bagian,
             'ket' => $request->ket,
         ]);
         return redirect('admin/berkas');

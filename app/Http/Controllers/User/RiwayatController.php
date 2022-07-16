@@ -10,7 +10,7 @@ class RiwayatController extends Controller
 {
     public function index($id){
         $no = 1;
-        $riwayat = Riwayat::where('id',$id)->get();
+        $riwayat = Riwayat::where('id_berkas',$id)->get();
         return view('user.riwayat.index',compact('no','riwayat'));
     }
 }

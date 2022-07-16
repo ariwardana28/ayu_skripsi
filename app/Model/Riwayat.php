@@ -11,7 +11,9 @@ class Riwayat extends Model
     protected $fillable = [
         'status',
         'id_berkas',
-        'ket'
+        'ket',
+        'hal',
+        'bagian',
     ];
 }
 

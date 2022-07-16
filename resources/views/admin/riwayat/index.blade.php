@@ -1,16 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.app')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
-        integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-</head>
-
-<body>
+@section('content')
     <div class="countainer">
         <div class="row justify-content-md-center">
             <div class="col-md-8">
@@ -41,7 +31,7 @@
                                                     Di Setujui
                                                 @endif
                                             </td>
-                                            <td>{{$item->ket}}</td>
+                                            <td>{{ $item->ket }}</td>
                                         </tr>
                                     @endif
                                 @endforeach
@@ -52,6 +42,4 @@
             </div>
         </div>
     </div>
-</body>
-
-</html>
+@endsection
