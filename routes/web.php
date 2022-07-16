@@ -27,3 +27,7 @@ Route::get('riwayat/{id}','User\RiwayatController@index')->name('riwayat.index')
 // Admin/Berkas
 Route::get('admin/berkas','Admin\BerkasController@index')->name('admin.berkas.index');
 Route::post('admin/berkas/verifikasi/{id}','Admin\BerkasController@verifikasi')->name('admin.berkas.verifikasi');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
