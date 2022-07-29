@@ -29,6 +29,8 @@ class BerkasController extends Controller
         $berkas = new Berkas();
         $berkas->id_user = $request->id_user;
         $berkas->tanggal = $request->tanggal;
+        $berkas->jenis = $request->jenis;
+        $berkas->alamat = $request->alamat;
         if ($file = $request->file('file') != null) {
             $file = $request->file('file');
             $nama_file = time() . "_" . $file->getClientOriginalName();
@@ -39,6 +41,7 @@ class BerkasController extends Controller
         $berkas->save();
         $riwayat = new Riwayat();
         $riwayat->id_berkas = $berkas->id;
+        $riwayat->id_user = Auth::user()->id;
         $riwayat->save();
         return redirect('berkas');
     }
@@ -53,6 +56,46 @@ class BerkasController extends Controller
         $riwayat = Riwayat::create([
             'status' => $request->status,
             'id_berkas' => $request->id_berkas,
+            'id_user' => Auth::user()->id,
+            'jenis' => $request->jenis,
+        ]);
+        return redirect('berkas');
+    }
+    public function seksi(Request $request, $id)
+    {
+        $riwayat = Riwayat::create([
+            'status' => '3',
+            'stsek' => $request->status,
+            'id_berkas' => $request->id_berkas,
+            'id_user' => Auth::user()->id,
+            'jenis' => $request->jenis,
+        ]);
+        return redirect('berkas');
+    }
+
+    public function bidang(Request $request, $id)
+    {
+        $riwayat = Riwayat::create([
+            'status' => '3',
+            'stsek' => '3',
+            'stbid' => $request->status,
+            'id_berkas' => $request->id_berkas,
+            'id_user' => Auth::user()->id,
+            'jenis' => $request->jenis,
+        ]);
+        return redirect('berkas');
+    }
+
+    public function dinas(Request $request, $id)
+    {
+        $riwayat = Riwayat::create([
+            'status' => '3',
+            'stsek' => '3',
+            'stbid' => '3',
+            'stkep' => $request->status,
+            'id_berkas' => $request->id_berkas,
+            'id_user' => Auth::user()->id,
+            'jenis' => $request->jenis,
         ]);
         return redirect('berkas');
     }

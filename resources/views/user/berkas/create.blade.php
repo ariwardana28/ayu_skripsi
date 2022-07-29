@@ -19,6 +19,14 @@
                                 <input type="date" name="tanggal" class="form-control">
                             </div>
                             <div class="form-group">
+                                <label for="">Jenis Usaha</label>
+                                <input type="text" name="jenis" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Alamat</label>
+                                <input type="text" name="alamat" class="form-control">
+                            </div>
+                            <div class="form-group">
                                 <label for="">Berkas</label>
                                 <input type="file" name="file" class="form-control">
                             </div>

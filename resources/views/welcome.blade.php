@@ -1,102 +1,146 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en">
 
-        <title>Laravel</title>
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
+    <title>Bethany Bootstrap Template - Index</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
+    <!-- Favicons -->
+    <link href="user/assets/img/favicon.png" rel="icon">
+    <link href="user/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-            .full-height {
-                height: 100vh;
-            }
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+        rel="stylesheet">
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
+    <!-- Vendor CSS Files -->
+    <link href="user/assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="user/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="user/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="user/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="user/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="user/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="user/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-            .position-ref {
-                position: relative;
-            }
+    <!-- Template Main CSS File -->
+    <link href="user/assets/css/style.css" rel="stylesheet">
 
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
+    <!-- =======================================================
+  * Template Name: Bethany - v4.8.1
+  * Template URL: https://bootstrapmade.com/bethany-free-onepage-bootstrap-theme/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
 
-            .content {
-                text-align: center;
-            }
+<body>
 
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-            <div class="content">
-                <div class="title m-b-md">
-                    <table>
-                        <tr>
-                            <td>
-                                <img src="logo.jpeg" style="width: 250px" alt="">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Dinas Ketenagakerjaan
-                            </td>
-                        </tr>
-                    </table>
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top d-flex align-items-center">
+        <div class="container">
+            <div class="header-container d-flex align-items-center justify-content-between">
+                <div class="logo">
+                    <h1 class="text-light"><a href="index.html"><span>DISNAKERTRANS</span></a></h1>
+                    <!-- Uncomment below if you prefer to use an image logo -->
+                    <!-- <a href="index.html"><img src="user/assets/img/logo.png" alt="" class="img-fluid"></a>-->
                 </div>
 
-              
+                <nav id="navbar" class="navbar">
+                    <ul>
+                        <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+                        <li><a class="nav-link scrollto" href="#about">Profile</a></li>
+                        <li><a class="nav-link scrollto" href="/register">Register</a></li>
+                        <li><a class="getstarted scrollto" href="/login">Login</a></li>
+                    </ul>
+                    <i class="bi bi-list mobile-nav-toggle"></i>
+                </nav><!-- .navbar -->
+
+            </div><!-- End Header Container -->
+        </div>
+    </header><!-- End Header -->
+
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex align-items-center">
+        <div class="container text-center position-relative" data-aos="fade-in" data-aos-delay="200">
+            <h1>Selamat Datang</h1>
+            <h2>Sistem Informasi Pembuatan Peraturan Perusahaan</h2>
+            {{-- <a href="#about" class="btn-get-started scrollto">Get Started</a> --}}
+        </div>
+    </section><!-- End Hero -->
+
+    <main id="main">
+
+
+
+        <!-- ======= About Section ======= -->
+        <section id="about" class="about">
+            <div class="container">
+
+                <div class="row content">
+                    <div class="" data-aos="fade-right" data-aos-delay="100">
+                        @foreach ($visi as $item)
+                            <center>
+                                <h2>{{ $item->bidang }}</h2>
+                                <h4><?php echo $item->ket?></h4>
+                            </center>
+                        @endforeach
+                        
+                    </div>
+
+
                 </div>
             </div>
+
+            </div>
+        </section><!-- End About Section -->
+
+
+    </main><!-- End #main -->
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+
+
+        <div class="container d-md-flex py-4">
+
+            <div class="me-md-auto text-center text-md-start">
+                <div class="copyright">
+                    &copy; Copyright <strong><span>Bethany</span></strong>. All Rights Reserved
+                </div>
+                <div class="credits">
+                    Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                </div>
+            </div>
+            <div class="social-links text-center text-md-right pt-3 pt-md-0">
+                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
         </div>
-    </body>
+    </footer><!-- End Footer -->
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="user/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="user/assets/vendor/aos/aos.js"></script>
+    <script src="user/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="user/assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="user/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="user/assets/vendor/swiper/swiper-bundle.min.js"></script>Sx
+    <script src="user/assets/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="user/assets/js/main.js"></script>
+
+</body>
+
 </html>

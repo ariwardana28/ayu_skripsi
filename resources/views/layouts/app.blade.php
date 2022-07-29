@@ -89,6 +89,72 @@
                                     @csrf
                                 </form>
                             </li>
+                        @elseif (Auth::user()->role == '2')
+                            <li class="sidebar-item">
+                                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/"
+                                    aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span
+                                        class="hide-menu">Kepala Seksi</span></a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                    href="{{ route('seksi.berkas.index') }}" aria-expanded="false"><i
+                                        class="mdi mdi-view-dashboard"></i><span class="hide-menu">Berkas</span></a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                    href="{{ route('logout') }}"
+                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                                    aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span
+                                        class="hide-menu">{{ __('Logout') }}</span></a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                    style="display: none;">
+                                    @csrf
+                                </form>
+                            </li>
+                            @elseif (Auth::user()->role == '3')
+                            <li class="sidebar-item">
+                                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/"
+                                    aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span
+                                        class="hide-menu">Kepala Bidang</span></a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                    href="{{ route('bidang.berkas.index') }}" aria-expanded="false"><i
+                                        class="mdi mdi-view-dashboard"></i><span class="hide-menu">Berkas</span></a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                    href="{{ route('logout') }}"
+                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                                    aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span
+                                        class="hide-menu">{{ __('Logout') }}</span></a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                    style="display: none;">
+                                    @csrf
+                                </form>
+                            </li>
+                            @elseif (Auth::user()->role == '4')
+                            <li class="sidebar-item">
+                                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/"
+                                    aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span
+                                        class="hide-menu">Kepala Dinas</span></a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                    href="{{ route('dinas.berkas.index') }}" aria-expanded="false"><i
+                                        class="mdi mdi-view-dashboard"></i><span class="hide-menu">Berkas</span></a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                    href="{{ route('logout') }}"
+                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                                    aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span
+                                        class="hide-menu">{{ __('Logout') }}</span></a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                    style="display: none;">
+                                    @csrf
+                                </form>
+                            </li>
                         @else
                             <li class="sidebar-item">
                                 <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/"

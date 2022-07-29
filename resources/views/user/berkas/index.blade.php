@@ -32,6 +32,9 @@
                                         if ($status != null) {
                                             $status->id_berkas;
                                             $stat = $status->status;
+                                            $stsek = $status->stsek;
+                                            $stbid = $status->stbid;
+                                            $stkep = $status->stkep;
                                         }
                                     @endphp
                                     <tr>
@@ -49,7 +52,6 @@
                                                     Verifikasi
                                                 </button>
 
-                                                <!-- Modal -->
                                                 <div class="modal fade" id="exampleModal{{ $item->id }}" tabindex="-1"
                                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog">
@@ -69,9 +71,6 @@
                                                                     <div class="form-group">
                                                                         <label for="">Apakah Anda Ingin Mengirim
                                                                             Berkas ?</label>
-                                                                        {{-- <input type="text" readonly
-                                                                            value="{{ $item->User->name }}"
-                                                                            class="form-control"> --}}
                                                                         <input type="hidden" value="{{ $item->id }}"
                                                                             name="id_berkas" class="form-control">
                                                                         <input type="hidden" name="status" value="1"
@@ -98,7 +97,6 @@
                                                     Verifikasi
                                                 </button>
 
-                                                <!-- Modal -->
                                                 <div class="modal fade" id="exampleModal{{ $item->id }}" tabindex="-1"
                                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog">
@@ -118,13 +116,158 @@
                                                                     <div class="form-group">
                                                                         <label for="">Apakah Anda Ingin Mengirim
                                                                             Berkas ?</label>
-                                                                        {{-- <input type="text" readonly
-                                                                            value="{{ $item->User->name }}"
-                                                                            class="form-control"> --}}
+
                                                                         <input type="hidden" value="{{ $item->id }}"
                                                                             name="id_berkas" class="form-control">
                                                                         <input type="hidden" name="status" value="1"
                                                                             id="">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                        data-dismiss="modal">Close</button>
+                                                                    <button type="submit" class="btn btn-primary">Save
+                                                                    </button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endif
+
+                                            @if ($stsek == '1')
+                                                <a href="#" class="btn btn-sm btn-info">Terkirim</a>
+                                            @elseif($stsek == '2')
+                                                <a href="{{ route('berkas.edit', $item->id) }}"
+                                                    class="btn btn-sm btn-warning">Revisi</a>
+                                                <button type="button" class="btn btn-sm btn-primary" data-toggle="modal"
+                                                    data-target="#exampleModal{{ $item->id }}">
+                                                    Verifikasi
+                                                </button>
+
+                                                <div class="modal fade" id="exampleModal{{ $item->id }}"
+                                                    tabindex="-1" aria-labelledby="exampleModalLabel"
+                                                    aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLabel">Verifikasi
+                                                                </h5>
+                                                                <button type="button" class="close"
+                                                                    data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                            <form action="{{ route('berkas.seksi', $item->id) }}"
+                                                                method="post">
+                                                                @csrf
+                                                                <div class="modal-body">
+                                                                    <div class="form-group">
+                                                                        <label for="">Apakah Anda Ingin Mengirim
+                                                                            Berkas ?</label>
+
+                                                                        <input type="hidden" value="{{ $item->id }}"
+                                                                            name="id_berkas" class="form-control">
+                                                                        <input type="hidden" name="status"
+                                                                            value="1" id="">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                        data-dismiss="modal">Close</button>
+                                                                    <button type="submit" class="btn btn-primary">Save
+                                                                    </button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endif
+
+                                            @if ($stbid == '1')
+                                                <a href="#" class="btn btn-sm btn-info">Terkirim</a>
+                                            @elseif($stbid == '2')
+                                                <a href="{{ route('berkas.edit', $item->id) }}"
+                                                    class="btn btn-sm btn-warning">Revisi</a>
+                                                <button type="button" class="btn btn-sm btn-primary" data-toggle="modal"
+                                                    data-target="#exampleModal{{ $item->id }}">
+                                                    Verifikasi
+                                                </button>
+
+                                                <div class="modal fade" id="exampleModal{{ $item->id }}"
+                                                    tabindex="-1" aria-labelledby="exampleModalLabel"
+                                                    aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLabel">Verifikasi
+                                                                </h5>
+                                                                <button type="button" class="close"
+                                                                    data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                            <form action="{{ route('berkas.bidang', $item->id) }}"
+                                                                method="post">
+                                                                @csrf
+                                                                <div class="modal-body">
+                                                                    <div class="form-group">
+                                                                        <label for="">Apakah Anda Ingin Mengirim
+                                                                            Berkas ?</label>
+
+                                                                        <input type="hidden" value="{{ $item->id }}"
+                                                                            name="id_berkas" class="form-control">
+                                                                        <input type="hidden" name="status"
+                                                                            value="1" id="">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                        data-dismiss="modal">Close</button>
+                                                                    <button type="submit" class="btn btn-primary">Save
+                                                                    </button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endif
+
+                                            @if ($stkep == '1')
+                                                <a href="#" class="btn btn-sm btn-info">Terkirim</a>
+                                            @elseif($stkep == '2')
+                                                <a href="{{ route('berkas.edit', $item->id) }}"
+                                                    class="btn btn-sm btn-warning">Revisi</a>
+                                                <button type="button" class="btn btn-sm btn-primary" data-toggle="modal"
+                                                    data-target="#exampleModal{{ $item->id }}">
+                                                    Verifikasi
+                                                </button>
+
+                                                <div class="modal fade" id="exampleModal{{ $item->id }}"
+                                                    tabindex="-1" aria-labelledby="exampleModalLabel"
+                                                    aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLabel">Verifikasi
+                                                                </h5>
+                                                                <button type="button" class="close"
+                                                                    data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                            <form action="{{ route('berkas.dinas', $item->id) }}"
+                                                                method="post">
+                                                                @csrf
+                                                                <div class="modal-body">
+                                                                    <div class="form-group">
+                                                                        <label for="">Apakah Anda Ingin Mengirim
+                                                                            Berkas ?</label>
+
+                                                                        <input type="hidden" value="{{ $item->id }}"
+                                                                            name="id_berkas" class="form-control">
+                                                                        <input type="hidden" name="status"
+                                                                            value="1" id="">
                                                                     </div>
                                                                 </div>
                                                                 <div class="modal-footer">

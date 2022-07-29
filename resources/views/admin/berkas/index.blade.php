@@ -19,6 +19,7 @@
                                     <th>Nama</th>
                                     <th>Berkas</th>
                                     <th>Action</th>
+                                    <th>Surat</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -32,6 +33,7 @@
                                         if ($status != null) {
                                             $status->id_berkas;
                                             $stat = $status->status;
+                                            $stkep = $status->stkep;
                                         } else {
                                             $stat = 0;
                                         }
@@ -122,6 +124,79 @@
                                                     <a href="#" class="btn btn-sm btn-success">Diterima</a>
                                                 @endif
 
+
+                                            </td>
+                                            <td>
+                                                @if ($stkep == '3')
+                                                    @if ($item->no_surat == null)
+                                                        <button type="button" class="btn btn-sm btn-primary"
+                                                            data-toggle="modal"
+                                                            data-target="#exampleModal{{ $item->id }}">
+                                                            Surat Pengesahan
+                                                        </button>
+
+                                                        <!-- Modal -->
+                                                        <div class="modal fade" id="exampleModal{{ $item->id }}"
+                                                            tabindex="-1" aria-labelledby="exampleModalLabel"
+                                                            aria-hidden="true">
+                                                            <div class="modal-dialog">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title" id="exampleModalLabel">
+                                                                            Surat Pengesahan
+                                                                        </h5>
+                                                                        <button type="button" class="close"
+                                                                            data-dismiss="modal" aria-label="Close">
+                                                                            <span aria-hidden="true">&times;</span>
+                                                                        </button>
+                                                                    </div>
+                                                                    <form
+                                                                        action="{{ route('admin.berkas.update', $item->id) }}"
+                                                                        method="post">
+                                                                        @csrf
+                                                                        <div class="modal-body">
+                                                                            <div class="form-group">
+                                                                                <label for="">Nama</label>
+                                                                                <input type="text" readonly
+                                                                                    value="{{ $item->User->name }}"
+                                                                                    class="form-control">
+                                                                                <input type="hidden"
+                                                                                    value="{{ $item->id }}"
+                                                                                    name="id_berkas" class="form-control">
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label for="">No Surat</label>
+                                                                                <input type="text" name="no_surat"
+                                                                                    class="form-control">
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label for="">Berlaku Dari</label>
+                                                                                <input type="date" name="dari"
+                                                                                    class="form-control">
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label for="">Berlaku
+                                                                                    Sampai</label>
+                                                                                <input type="date" name="sampai"
+                                                                                    class="form-control">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button"
+                                                                                class="btn btn-secondary"
+                                                                                data-dismiss="modal">Close</button>
+                                                                            <button type="submit"
+                                                                                class="btn btn-primary">Save
+                                                                            </button>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    @else
+                                                        <a href="{{route('admin.berkas.show',$item->id)}}" class="btn btn-sm btn-success">Lihat Surat Pengesahan</a>
+                                                    @endif
+                                                @endif
                                             </td>
                                         </tr>
                                     @else

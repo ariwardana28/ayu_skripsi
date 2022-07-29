@@ -12,6 +12,7 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Tanggal</th>
+                                    <th>Nama</th>
                                     <th>Status</th>
                                     <th>Revisi</th>
                                 </tr>
@@ -22,6 +23,7 @@
                                         <tr>
                                             <td>{{ $no++ }}</td>
                                             <td>{{ $item->created_at }}</td>
+                                            <td>{{ $item->User->name }}</td>
                                             <td>
                                                 @if ($item->status == '1')
                                                     Terkirim
