@@ -69,7 +69,7 @@
                         @if (Auth::user() == null)
                         @elseif (Auth::user()->role == '1')
                             <li class="sidebar-item">
-                                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/"
+                                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/home"
                                     aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span
                                         class="hide-menu">Admin</span></a>
                             </li>
@@ -77,6 +77,11 @@
                                 <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                     href="{{ route('admin.berkas.index') }}" aria-expanded="false"><i
                                         class="mdi mdi-view-dashboard"></i><span class="hide-menu">Berkas</span></a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                    href="{{ route('admin.arsip.index') }}" aria-expanded="false"><i
+                                        class="mdi mdi-view-dashboard"></i><span class="hide-menu">Arsip</span></a>
                             </li>
                             <li class="sidebar-item">
                                 <a class="sidebar-link waves-effect waves-dark sidebar-link"
@@ -91,7 +96,7 @@
                             </li>
                         @elseif (Auth::user()->role == '2')
                             <li class="sidebar-item">
-                                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/"
+                                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/home"
                                     aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span
                                         class="hide-menu">Kepala Seksi</span></a>
                             </li>
@@ -113,7 +118,7 @@
                             </li>
                             @elseif (Auth::user()->role == '3')
                             <li class="sidebar-item">
-                                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/"
+                                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/home"
                                     aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span
                                         class="hide-menu">Kepala Bidang</span></a>
                             </li>
@@ -135,7 +140,7 @@
                             </li>
                             @elseif (Auth::user()->role == '4')
                             <li class="sidebar-item">
-                                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/"
+                                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/home"
                                     aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span
                                         class="hide-menu">Kepala Dinas</span></a>
                             </li>
@@ -157,7 +162,7 @@
                             </li>
                         @else
                             <li class="sidebar-item">
-                                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/"
+                                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/home"
                                     aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span
                                         class="hide-menu">User</span></a>
                             </li>

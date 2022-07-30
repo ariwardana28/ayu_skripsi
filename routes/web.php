@@ -35,6 +35,13 @@ Route::get('admin/berkas','Admin\BerkasController@index')->name('admin.berkas.in
 Route::post('admin/berkas/verifikasi/{id}','Admin\BerkasController@verifikasi')->name('admin.berkas.verifikasi');
 Route::post('admin/berkas/{id}/update','Admin\BerkasController@update')->name('admin.berkas.update');
 Route::get('admin/berkas/{id}/show','Admin\BerkasController@show')->name('admin.berkas.show');
+Route::get('admin/berkas/{id}/print','Admin\BerkasController@print')->name('admin.berkas.print');
+
+// Admin/Arsip
+Route::get('admin/arsip','Admin\ArsipController@index')->name('admin.arsip.index');
+Route::get('admin/arsip/{id}','Admin\ArsipController@show')->name('admin.arsip.show');
+Route::post('admin/arsip/store','Admin\ArsipController@store')->name('admin.arsip.store');
+
 
 // Admin/Visi
 Route::get('visi','Admin\VisiController@index')->name('admin.visi.index');

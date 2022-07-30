@@ -194,7 +194,60 @@
                                                             </div>
                                                         </div>
                                                     @else
-                                                        <a href="{{route('admin.berkas.show',$item->id)}}" class="btn btn-sm btn-success">Lihat Surat Pengesahan</a>
+                                                        <a href="{{ route('admin.berkas.show', $item->id) }}"
+                                                            class="btn btn-sm btn-success">Lihat Surat Pengesahan</a>
+                                                        <button type="button" class="btn btn-sm btn-primary"
+                                                            data-toggle="modal"
+                                                            data-target="#exampleModal{{ $item->id }}">
+                                                            Upload Berkas
+                                                        </button>
+
+                                                        <!-- Modal -->
+                                                        <div class="modal fade" id="exampleModal{{ $item->id }}"
+                                                            tabindex="-1" aria-labelledby="exampleModalLabel"
+                                                            aria-hidden="true">
+                                                            <div class="modal-dialog">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title" id="exampleModalLabel">
+                                                                            Upload Berkas Arsip
+                                                                        </h5>
+                                                                        <button type="button" class="close"
+                                                                            data-dismiss="modal" aria-label="Close">
+                                                                            <span aria-hidden="true">&times;</span>
+                                                                        </button>
+                                                                    </div>
+                                                                    <form
+                                                                        action="{{ route('admin.arsip.store', $item->id) }}"
+                                                                        method="post" enctype="multipart/form-data">
+                                                                        @csrf
+                                                                        <div class="modal-body">
+                                                                            <div class="form-group">
+                                                                                <label for="">No Surat</label>
+                                                                                <input type="hidden" name="id_berkas" class="form-control" readonly value="{{$item->id}}">
+                                                                                <input type="text" name="no_surat" class="form-control" readonly value="{{$item->no_surat}}">
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label for="">No Surat</label>
+                                                                                <input type="date" name="tgl" class="form-control" readonly value="{{date("Y-m-d")}}">
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label for="">File</label>
+                                                                                <input type="file" name="file" class="form-control" readonly >
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button"
+                                                                                class="btn btn-secondary"
+                                                                                data-dismiss="modal">Close</button>
+                                                                            <button type="submit"
+                                                                                class="btn btn-primary">Save
+                                                                            </button>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     @endif
                                                 @endif
                                             </td>

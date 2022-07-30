@@ -53,4 +53,8 @@ class BerkasController extends Controller
         $berkas = Berkas::find($id);
         return view('admin.berkas.show', compact('berkas'));
     }
+    public function print($id){
+        $berkas = Berkas::find($id);
+        return view('admin.berkas.print', compact('berkas'));
+    }
 }
